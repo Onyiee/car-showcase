@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { useState, Fragment } from "react";
 import { SearchManufacturerProps } from "@/types";
@@ -21,7 +22,7 @@ const SearchManufacturer = ({
 
   const filteredManufacturers =
     query === ""
-      ? manufacturers
+      ? manufacturers || []
       : manufacturers.filter((item) =>
           item
             .toLowerCase()
@@ -74,7 +75,26 @@ const SearchManufacturer = ({
                     }
                     value={item}
                   >
-                    {item}
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${
+                            selected ? "font-medium" : "font-normal"
+                          }`}
+                        >
+                          {item}
+                        </span>
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? "text-white" : "text-teal-600"
+                            }`}
+                          >
+                            {/* Add content if needed */}
+                          </span>
+                        ) : null}
+                      </>
+                    )}
                   </ComboboxOption>
                 ))
               )}
