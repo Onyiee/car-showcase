@@ -39,6 +39,32 @@ const CarCard = ({ car }: CarCardProps) => {
         {carRent}
         <span className="self-end text-[14px] font-medium">/day</span>{" "}
       </p>
+
+      <div className="relative w-full h-40 my-3 object-contain">
+        <Image
+          src="/hero.png"
+          alt="car model"
+          fill
+          priority
+          className="object-contain"
+        />
+      </div>
+
+      <div className="relative flex w-full mt-2">
+        <div className="flex group-hover:invisible w-full justify-between text-gray-600">
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image
+              src="/steering-wheel.svg"
+              width={20}
+              height={20}
+              alt="steering wheel"
+            />
+            <p className="text-[14px]">
+              {transmission === "a" ? "Automatic" : "Manual"}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
