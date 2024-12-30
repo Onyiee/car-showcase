@@ -20,7 +20,13 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
-  const handleSearch = () => {};
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (manufacturer === "" && model === "") {
+      return alert("Please fill in the search bar");
+    }
+  };
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>
