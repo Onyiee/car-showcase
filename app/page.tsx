@@ -50,6 +50,8 @@ export default async function Home({
               <CarCard car={car} />
             ))}
           </div>
+
+          <ShowMore pageNumber />
         </section>
       ) : (
         <div className="home__error-container">
